@@ -1,0 +1,49 @@
+# Makefile for UVM Testbench
+
+# Variables
+VCS = vcs
+VCS_OPTS = -full64 -sverilog -ntb_opts uvm-1.1 -debug_pp +vcs+vcdpluson +ntb_random_seed_automatic
+INC_DIRS = +incdir+../rtl/include/ +incdir+../testbench/
+RTL_SRCS = ../rtl/verilog/*.v
+TB_SRCS = ../testbench/testcase.sv \
+          ../testbench/testclass.sv \
+          ../testbench/xge_mac_interface.sv
+TOP_MODULE = ../testbench/xge_mac_tb_top.sv
+SIMV = simv
+LOG = vcs.log
+
+# Test Names
+TESTS = test_small_packet test_loopback test_large_packet
+
+# Targets
+all: $(TESTS)
+
+test_small_packet: compile
+	./$(SIMV) +UVM_TESTNAME=test_small_packet +UVM_VERBOSITY=HIGH
+
+test_loopback: compile
+	./$(SIMV) +UVM_TESTNAME=test_loopback +UVM_VERBOSITY=HIGH
+
+test_large_packet: compile
+	./$(SIMV) +UVM_TESTNAME=test_large_packet +UVM_VERBOSITY=HIGH
+
+compile:
+	$(VCS) $(VCS_OPTS) $(INC_DIRS) $(RTL_SRCS) $(TB_SRCS) -top $(TOP_MODULE) -l $(LOG)
+
+clean:
+	rm -rf csrc DVEfiles *.vpd *.log $(SIMV) ucli.key
+
+help:
+	@echo "Usage:"
+	@echo "  make                   - Compiles and runs all tests"
+	@echo "  make test_small_packet - Compiles and runs the small packet test"
+	@echo "  make test_loopback     - Compiles and runs the loopback test"
+	@echo "  make test_large_packet - Compiles and runs the large packet test"
+	@echo "  make compile           - Compiles the simulation"
+	@echo "  make clean             - Cleans up generated files"
+	@echo "  make help              - Displays this help message"
+
+
+
+
+

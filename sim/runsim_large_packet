@@ -1,0 +1,8 @@
+vcs -full64 -R -sverilog -l vcs.log -top xge_mac_tb_top  -ntb_opts uvm-1.1                                                   \
++incdir+rtl/include                                                                                    \
+rtl/verilog/*.v                                                                                          \
++incdir+testbench                                                                                         \
+testbench/xge_mac_tb_top.sv                                                                                \
+testbench/xge_mac_interface.sv                                                                              \
+testbench/testcase.sv                                                                                        \    
++UVM_TESTNAME=test_large_packet +UVM_VERBOSITY=HIGH +ntb_random_seed_automatic

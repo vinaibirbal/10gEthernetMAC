@@ -1,0 +1,181 @@
+Command: vcs -full64 +vcs+lic+wait -sverilog -R -l vcs.log -override_timescale=1ps/1ps \
+../../rtl/verilog/fault_sm.v ../../rtl/verilog/generic_fifo_ctrl.v ../../rtl/verilog/generic_fifo.v \
+../../rtl/verilog/generic_mem_medium.v ../../rtl/verilog/generic_mem_small.v ../../rtl/verilog/meta_sync_single.v \
+../../rtl/verilog/meta_sync.v ../../rtl/verilog/rx_data_fifo.v ../../rtl/verilog/rx_dequeue.v \
+../../rtl/verilog/rx_enqueue.v ../../rtl/verilog/rx_hold_fifo.v ../../rtl/verilog/sync_clk_core.v \
+../../rtl/verilog/sync_clk_wb.v ../../rtl/verilog/sync_clk_xgmii_tx.v ../../rtl/verilog/tx_data_fifo.v \
+../../rtl/verilog/tx_dequeue.v ../../rtl/verilog/tx_enqueue.v ../../rtl/verilog/tx_hold_fifo.v \
+../../rtl/verilog/wishbone_if.v ../../rtl/verilog/xge_mac.v +incdir+../../rtl/include \
+../../testbench/verilog/tb_xge_mac.sv ../../testbench/verilog/testcase.sv +incdir+../../testbench/verilog \
+
+                         Chronologic VCS (TM)
+       Version U-2023.03-SP2_Full64 -- Sun Jun 16 15:43:35 2024
+
+                    Copyright (c) 1991 - 2023 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file '../../rtl/verilog/fault_sm.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/fault_sm.v'.
+Parsing design file '../../rtl/verilog/generic_fifo_ctrl.v'
+Parsing design file '../../rtl/verilog/generic_fifo.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/generic_fifo.v'.
+Parsing design file '../../rtl/verilog/generic_mem_medium.v'
+Parsing design file '../../rtl/verilog/generic_mem_small.v'
+Parsing design file '../../rtl/verilog/meta_sync_single.v'
+Parsing design file '../../rtl/verilog/meta_sync.v'
+Parsing design file '../../rtl/verilog/rx_data_fifo.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/rx_data_fifo.v'.
+Parsing design file '../../rtl/verilog/rx_dequeue.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/rx_dequeue.v'.
+Parsing design file '../../rtl/verilog/rx_enqueue.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/rx_enqueue.v'.
+Parsing included file '../../rtl/include/CRC32_D64.v'.
+Back to file '../../rtl/verilog/rx_enqueue.v'.
+Parsing included file '../../rtl/include/CRC32_D8.v'.
+Back to file '../../rtl/verilog/rx_enqueue.v'.
+Parsing included file '../../rtl/include/utils.v'.
+Back to file '../../rtl/verilog/rx_enqueue.v'.
+Parsing design file '../../rtl/verilog/rx_hold_fifo.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/rx_hold_fifo.v'.
+Parsing design file '../../rtl/verilog/sync_clk_core.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/sync_clk_core.v'.
+Parsing design file '../../rtl/verilog/sync_clk_wb.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/sync_clk_wb.v'.
+Parsing design file '../../rtl/verilog/sync_clk_xgmii_tx.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/sync_clk_xgmii_tx.v'.
+Parsing design file '../../rtl/verilog/tx_data_fifo.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/tx_data_fifo.v'.
+Parsing design file '../../rtl/verilog/tx_dequeue.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/tx_dequeue.v'.
+Parsing included file '../../rtl/include/CRC32_D64.v'.
+Back to file '../../rtl/verilog/tx_dequeue.v'.
+Parsing included file '../../rtl/include/CRC32_D8.v'.
+Back to file '../../rtl/verilog/tx_dequeue.v'.
+Parsing included file '../../rtl/include/utils.v'.
+Back to file '../../rtl/verilog/tx_dequeue.v'.
+Parsing design file '../../rtl/verilog/tx_enqueue.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/tx_enqueue.v'.
+Parsing included file '../../rtl/include/CRC32_D64.v'.
+Back to file '../../rtl/verilog/tx_enqueue.v'.
+Parsing included file '../../rtl/include/CRC32_D8.v'.
+Back to file '../../rtl/verilog/tx_enqueue.v'.
+Parsing included file '../../rtl/include/utils.v'.
+Back to file '../../rtl/verilog/tx_enqueue.v'.
+Parsing design file '../../rtl/verilog/tx_hold_fifo.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/tx_hold_fifo.v'.
+Parsing design file '../../rtl/verilog/wishbone_if.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/wishbone_if.v'.
+Parsing design file '../../rtl/verilog/xge_mac.v'
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../rtl/verilog/xge_mac.v'.
+Parsing design file '../../testbench/verilog/tb_xge_mac.sv'
+Parsing included file '../../rtl/include/timescale.v'.
+Back to file '../../testbench/verilog/tb_xge_mac.sv'.
+Parsing included file '../../rtl/include/defines.v'.
+Back to file '../../testbench/verilog/tb_xge_mac.sv'.
+Parsing included file '../../testbench/verilog/testcase.sv'.
+Parsing included file '../../testbench/verilog/tasks.sv'.
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 25
+  Identifier 'clk_156m25' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 27
+  Identifier 'pkt_tx_val' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 29
+  Identifier 'tx_length' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 31
+  Identifier 'pkt_tx_sop' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 32
+  Identifier 'pkt_tx_eop' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 33
+  Identifier 'pkt_tx_mod' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 42
+  Identifier 'pkt_tx_data' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 42
+  Identifier 'tx_buffer' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 60
+  Identifier 'tx_count' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Error-[IND] Identifier not declared
+../../testbench/verilog/tasks.sv, 147
+  Identifier 'pkt_rx_ren' has not been declared yet. If this error is not 
+  expected, please check if you have set `default_nettype to none.
+  
+
+
+Note-[MAX_ERROR_COUNT] Maximum error count reached
+  Current number of errors has reached the default maximum error count (10).
+  Please use +error+<count> to increase the limit.
+
+10 errors
+CPU time: .205 seconds to compile

@@ -1,0 +1,9 @@
+vcs -full64 +vcs+lic+wait -sverilog -R -l vcs.log \
+-override_timescale=1ps/1ps \
+../../rtl/verilog/*.v \
++incdir+../../rtl/include \
+../../testbench/verilog/tb_xge_mac.sv \
+../../testbench/verilog/testcase.sv \
++incdir+../../testbench/verilog \
+
+
