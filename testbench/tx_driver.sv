@@ -38,25 +38,25 @@ class tx_driver extends uvm_driver #(packet);
             tx_drv_vi.drv_cb.pkt_tx_sop    <= $urandom_range(1,0);
             tx_drv_vi.drv_cb.pkt_tx_eop    <= $urandom_range(1,0);
             tx_drv_vi.drv_cb.pkt_tx_mod    <= $urandom_range(7,0);
-            tx_drv_vi.drv_cb.pkt_tx_data   <= { $urandom, $urandom_range(10000,0) };
+            tx_drv_vi.drv_cb.pkt_tx_data   <= { $urandom, $urandom};
          end
          else begin
          `uvm_info( get_name(), $psprintf("Content of TX Packet is: \n%0s", req.sprint()), UVM_HIGH);
-         len_data = req.pkt_data.size()%64;
+         len_data = req.pkt_data.size();
          for ( int i=0; i<len_data; i++ ) begin
             @(tx_drv_vi.drv_cb);
             if(i ==0)begin //sop
                tx_drv_vi.drv_cb.pkt_tx_val  <= 1'b1;
                tx_drv_vi.drv_cb.pkt_tx_sop  <= 1'b1;
                tx_drv_vi.drv_cb.pkt_tx_eop  <= 1'b0;
-               tx_drv_vi.drv_cb.pkt_tx_mod  <= req.pkt_status[2:0];
+               tx_drv_vi.drv_cb.pkt_tx_mod  <= $urandom_range(7,0);
                tx_drv_vi.drv_cb.pkt_tx_data <= req.pkt_data[i];
             end
             else if(i == len_data -1)begin //eop
                tx_drv_vi.drv_cb.pkt_tx_val  <= 1'b1;
                tx_drv_vi.drv_cb.pkt_tx_sop  <= 1'b0;
                tx_drv_vi.drv_cb.pkt_tx_eop  <= 1'b1;
-               tx_drv_vi.drv_cb.pkt_tx_mod  <= req.pkt_status[2:0];
+               tx_drv_vi.drv_cb.pkt_tx_mod  <=$urandom_range(7,0);
                tx_drv_vi.drv_cb.pkt_tx_data <= req.pkt_data[i];
             end
 
@@ -64,7 +64,7 @@ class tx_driver extends uvm_driver #(packet);
                tx_drv_vi.drv_cb.pkt_tx_val  <= 1'b1;
                tx_drv_vi.drv_cb.pkt_tx_sop  <= 1'b0;
                tx_drv_vi.drv_cb.pkt_tx_eop  <= 1'b0;
-               tx_drv_vi.drv_cb.pkt_tx_mod  <= req.pkt_status[2:0];
+               tx_drv_vi.drv_cb.pkt_tx_mod  <= $urandom_range(7,0);
                tx_drv_vi.drv_cb.pkt_tx_data <= req.pkt_data[i];
             end
          end                   
@@ -76,7 +76,7 @@ class tx_driver extends uvm_driver #(packet);
             tx_drv_vi.drv_cb.pkt_tx_sop    <= $urandom_range(1,0);
             tx_drv_vi.drv_cb.pkt_tx_eop    <= $urandom_range(1,0);
             tx_drv_vi.drv_cb.pkt_tx_mod    <= $urandom_range(7,0);
-            tx_drv_vi.drv_cb.pkt_tx_data   <= { $urandom, $urandom_range(100000,0) };
+            tx_drv_vi.drv_cb.pkt_tx_data   <= { $urandom, $urandom };
          end
         // trans done
         seq_item_port.item_done();

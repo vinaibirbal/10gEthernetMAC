@@ -6,6 +6,7 @@
 `include "wishbone_sequence.sv"
 `include "virtual_sequencer.sv"
 `include "virtual_sequence.sv"
+`include "xge_mac_config.sv"
 
 class test_base extends uvm_test;
 
@@ -14,6 +15,7 @@ class test_base extends uvm_test;
   env envo;
   packet_sequence seq;
   packet eth;
+  xge_mac_config cfg;
 
   virtual_sequencer v_seqr;
   
@@ -23,6 +25,14 @@ class test_base extends uvm_test;
 
   virtual function void build_phase(input uvm_phase);
     super.build_phase(phase);
+
+    // Create and configure the xge_mac_config object
+    cfg = xge_mac_config::type_id::create("cfg");
+    if (!cfg.randomize()) begin
+      `uvm_fatal("CONFIG", "Failed to randomize configuration")
+    end
+    uvm_config_db#(xge_mac_config)::set(this, "*", "xge_mac_config", cfg);
+
 
     //create objects
     envo = env::type_id::create("envo",this);

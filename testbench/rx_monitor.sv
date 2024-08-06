@@ -60,11 +60,8 @@ class rx_monitor extends uvm_monitor;
             pkt_in_progress = 1;
             rx_mon_mi.mon_cb.pkt_rx_ren <= 1'b1;
 
-            rcv_pkt.pkt_status[7]       = mon_vi.mon_cb.pkt_rx_sop;
-            rcv_pkt.pkt_status[4]       = mon_vi.mon_cb.pkt_rx_avail;
-            rcv_pkt.pkt_status[3]       = mon_vi.mon_cb.pkt_rx_val;
-            rcv_pkt.pkt_status[2:0]     = mon_vi.mon_cb.pkt_rx_mod;
             rcv_pkt.pkt_data[0]         = mon_vi.mon_cb.pkt_rx_data;
+
           end
           //sop deasserted
           if( !rx_mon_mi.mon_cb.pkt_rx_sop && !rx_mon_mi.mon_cb.pkt_rx_eop && pkt_in_progress==1 )begin
@@ -73,9 +70,8 @@ class rx_monitor extends uvm_monitor;
             index ++;
             rx_mon_mi.mon_cb.pkt_rx_ren <= 1'b1;
 
-
-            rcv_pkt.pkt_status[2:0]     = mon_vi.mon_cb.pkt_rx_mod;
             rcv_pkt.pkt_data[index]     = mon_vi.mon_cb.pkt_rx_data;
+
          end
             ///eop asserted
           if( !rx_mon_mi.mon_cb.pkt_rx_sop && rx_mon_mi.mon_cb.pkt_rx_eop && pkt_in_progress==1 )begin
@@ -84,9 +80,6 @@ class rx_monitor extends uvm_monitor;
             index++;
             rx_mon_mi.mon_cb.pkt_rx_ren <= 1'b0;
 
-            rcv_pkt.pkt_status[6]       = mon_vi.mon_cb.pkt_rx_eop;
-            rcv_pkt.pkt_status[5]       = mon_vi.mon_cb.pkt_rx_err;
-            rcv_pkt.pkt_status[2:0]     = mon_vi.mon_cb.pkt_rx_mod;
             rcv_pkt.pkt_data[index]     = mon_vi.mon_cb.pkt_rx_data;
 
             pkt_caputured = 1;
@@ -98,27 +91,21 @@ class rx_monitor extends uvm_monitor;
 
             rx_mon_mi.mon_cb.pkt_rx_ren <= 1'b1;
 
-            rcv_pkt.pkt_status[7]       = mon_vi.mon_cb.pkt_rx_sop;
-            rcv_pkt.pkt_status[6]       = mon_vi.mon_cb.pkt_rx_eop;
-            rcv_pkt.pkt_status[5]       = mon_vi.mon_cb.pkt_rx_err;
-            rcv_pkt.pkt_status[4]       = mon_vi.mon_cb.pkt_rx_avail;
-            rcv_pkt.pkt_status[3]       = mon_vi.mon_cb.pkt_rx_val;
-            rcv_pkt.pkt_status[2:0]     = mon_vi.mon_cb.pkt_rx_mod;
             rcv_pkt.pkt_data[0]     = mon_vi.mon_cb.pkt_rx_data;
 
             pkt_caputured = 1;
 
           end
 
-          if( packet_captured )begin
+          if( pkt_captured )begin
             `uvm_info("Content of rcvpkt is", rcvpkt.sprint(), UVM_HIGH);
             //Display # of packets received
             `uvm_info("Got_Output_Packet", {"\n", rcvpkt.sprint()}, UVM_MEDIUM);
-            if ( !rcv_pkt.pkt_status[5] && rrcv_pkt.pkt_status[7] && rcv_pkt.pkt_status[6] ) begin
+            if ( !rcv_pkt.pkt_status[5] && rcv_pkt.pkt_status[7] && rcv_pkt.pkt_status[6] ) begin
               ap_rx_mon.write( rcv_pkt );
               num_pkt++;
             end
-            packet_captured = 0;
+            pkt_captured = 0;
           end
         end
       end
